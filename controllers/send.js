@@ -56,11 +56,14 @@ const sendMedia = (client, number = null, fileName = null) => {
  */
 const sendMessage = async (client, number = null, text = null, trigger = null) => {
    setTimeout(async () => {
+    console.log('primer number', number)
+    console.log('primer text', text)
     number = cleanNumber(number)
     const message = text
     client.sendMessage(number, message);
     await readChat(number, message, trigger)
-    console.log(`⚡⚡⚡ Enviando mensajes....`);
+    console.log(`⚡⚡⚡ Enviando mensajes....`, number);
+    console.log(` Enviando mensajes....`, message);
    },DELAY_TIME)
 }
 

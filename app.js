@@ -15,6 +15,7 @@ const { saveMedia } = require('./controllers/save')
 const { getMessages, responseMessages, bothResponse } = require('./controllers/flows')
 const { sendMedia, sendMessage, lastTrigger, sendMessageButton, readChat } = require('./controllers/send')
 const app = express();
+const router = express.Router()
 app.use(cors())
 app.use(express.json())
 const MULTI_DEVICE = process.env.MULTI_DEVICE || 'true';
@@ -23,6 +24,9 @@ const server = require('http').Server(app)
 const port = process.env.PORT || 3000
 var client;
 app.use('/', require('./routes/web'))
+// router.post('/post', (req, res)=>{
+//     console.log('vamos bien', req)
+//  })
 
 /**
  * Escuchamos cuando entre un mensaje
